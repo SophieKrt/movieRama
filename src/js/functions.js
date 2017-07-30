@@ -4,76 +4,28 @@ import {
     getMoviebyId,
     getMovieVideos,
     getMovieSimilar,
-    getMoviesReviews
+    getMoviesReviews,
+    searchMovie
 } from './apiCalls';
 import Rx from 'rxjs';
 
 
 const urlForImages = "https://image.tmdb.org/t/p/w500";
+var genresArray = [];
 
 /* returns an array of the processed data from the api call that returnes the movies in theaters*/
 export const getMoviesNowData = (page, cb) => {
     let moviesInTheatersPromise = getMoviesPlayingNow(page);
     let moviesArray = [];
-    let genresArray = [];
     let totalpages = 0;
 
     getGenres().then(result => {
         if (result.status === 200) {
             genresArray = result.data.genres;
 
-
-            Rx.Observable.fromPromise(moviesInTheatersPromise)
-                .map(movieData => {
-                    totalpages = movieData.data.total_pages;
-                    return movieData.data.results;
-                })
-                .mergeMap(data => Rx.Observable.from(data))
-                .map(movieItem => {
-                    movieItem = {
-                        id: movieItem.id,
-                        title: movieItem.title,
-                        imagepath: urlForImages + movieItem.poster_path,
-                        backdropPath: urlForImages + movieItem.backdrop_path,
-                        originalTitle: movieItem.original_title,
-                        description: movieItem.overview,
-                        date: new Date(movieItem.release_date).getFullYear(),
-                        release_date: movieItem.release_date,
-                        genreIds: movieItem.genre_ids,
-                        language: movieItem.original_language,
-                        popularity: movieItem.popularity,
-                        vote: movieItem.vote_average,
-                        vote_count: movieItem.vote_count,
-                        video: movieItem.video, /* true or false */
-                        adult: movieItem.adult,
-                        details: {
-                            videos: null,
-                            reviews: null,
-                            similar: null
-                        }
-                    };
-                    return movieItem;
-                })
-                .map(movieItem => {
-
-                    let genrArrNames = movieItem.genreIds.map(genreId => {
-                        return genresArray.filter(genreObj => genreObj.id == genreId)
-                            .map(genre => {
-                                return (typeof(genre.name ) == 'string' ? genre.name : "")
-                            });
-
-                    });
-
-                    movieItem.genrenames = genrArrNames;
-                    return movieItem;
-                })
-                .subscribe(
-                    next => moviesArray.push(next),
-                    error => console.log(error),
-                    () => {
-                        cb(moviesArray, totalpages);
-                    }
-                );
+            transformPromiseToMovies(moviesInTheatersPromise, (results, pg) => {
+                cb(results, pg);
+            })
         }
     })
         .catch(err => {
@@ -191,7 +143,74 @@ export const getMovieDetails = (id) => {
             })
     })
 
+}
 
+
+export const searchForMovie = (query, page, cb) => {
+    let searchPromise = searchMovie(query, page);
+
+    transformPromiseToMovies(searchPromise, (array, totalpg) =>{
+       cb(array,totalpg);
+    })
+
+}
+
+
+const transformPromiseToMovies = (promise, cb) => {
+    let moviesArray = [];
+    let totalpages = 0;
+
+    Rx.Observable.fromPromise(promise)
+        .map(movieData => {
+            totalpages = movieData.data.total_pages;
+            return movieData.data.results;
+        })
+        .mergeMap(data => Rx.Observable.from(data))
+        .map(movieItem => {
+            movieItem = {
+                id: movieItem.id,
+                title: movieItem.title,
+                imagepath: urlForImages + movieItem.poster_path,
+                backdropPath: urlForImages + movieItem.backdrop_path,
+                originalTitle: movieItem.original_title,
+                description: movieItem.overview,
+                date: new Date(movieItem.release_date).getFullYear(),
+                release_date: movieItem.release_date,
+                genreIds: movieItem.genre_ids,
+                language: movieItem.original_language,
+                popularity: movieItem.popularity,
+                vote: movieItem.vote_average,
+                vote_count: movieItem.vote_count,
+                video: movieItem.video, /* true or false */
+                adult: movieItem.adult,
+                details: {
+                    videos: null,
+                    reviews: null,
+                    similar: null
+                }
+            };
+            return movieItem;
+        })
+        .map(movieItem => {
+
+            let genrArrNames = movieItem.genreIds.map(genreId => {
+                return genresArray.filter(genreObj => genreObj.id == genreId)
+                    .map(genre => {
+                        return (typeof(genre.name ) == 'string' ? genre.name : "")
+                    });
+
+            });
+
+            movieItem.genrenames = genrArrNames;
+            return movieItem;
+        })
+        .subscribe(
+            next => moviesArray.push(next),
+            error => console.log(error),
+            () => {
+                cb(moviesArray, totalpages);
+            }
+        );
 }
 
 

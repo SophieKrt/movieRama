@@ -11,6 +11,7 @@ var totalpages = 0;
 var moviesInTheaters = [];
 var previewsTemplate, detailsTemplate;
 var scrolledToBottom = false;
+var searchMode = false;
 /* used for loading more movies when reaching bottom*/
 
 $(document).ready(() => {
@@ -39,6 +40,7 @@ $(document).ready(() => {
 
 
 const getMoviePreviews = (page) => {
+    searchMode = false;
     functions.getMoviesNowData(page, (resultArray, totalpgs) => {
 
         if (page === 1) {
@@ -47,7 +49,7 @@ const getMoviePreviews = (page) => {
 
         moviesInTheaters = resultArray;
 
-        var theCompiledHtml = previewsTemplate(resultArray);
+        let theCompiledHtml = previewsTemplate(resultArray);
         $('.content-placeholder').append(theCompiledHtml);
         scrolledToBottom = false;
         $('.loader').addClass('hidden');
@@ -56,11 +58,36 @@ const getMoviePreviews = (page) => {
     });
 }
 
+const getSearchMovies = (page) => {
+    let currentValue = $('#searchInput').val();
+    if (currentValue != ""){
+        functions.searchForMovie(currentValue, page, (resultArray, totalpgs) =>{
+            if (page === 1) {
+                totalpages = totalpgs;
+                $('.content-placeholder').html("");
+            }
+            if (resultArray.length == 0){
+                $('.content-placeholder').html("No results matched your search.");
+            }else{
+                moviesInTheaters = resultArray;
+
+                let theCompiledHtml = previewsTemplate(resultArray);
+                $('.content-placeholder').append(theCompiledHtml);
+                scrolledToBottom = false;
+                $('.loader').addClass('hidden');
+
+                setEventListeners();
+            }
+
+        });
+    }
+}
+
 
 const setEventListeners = () => {
 
     let moviePreviewHeight = $('.movie-item').height();
-    let getMoviePrevs = getMoviePreviews;
+    let getMoviesFunc = searchMode ? getSearchMovies : getMoviePreviews;
 
 
     $('.see-more-link').on('click', function (e) {
@@ -73,8 +100,10 @@ const setEventListeners = () => {
             $('.loader').removeClass('hidden');
             scrolledToBottom = true;
             currentPage++;
-            if (totalpages >= currentPage)
-                getMoviePrevs(currentPage);
+            if (totalpages >= currentPage){
+                getMoviesFunc(currentPage);
+            }
+
             else{
                 $('.loader').addClass('hidden');
                 console.log("End of results");
@@ -150,3 +179,15 @@ const collapseMovie = () => {
     }
 
 }
+
+$('#searchInput').on('input', function() {
+    currentPage = 1;
+    searchMode = true;
+    getSearchMovies(currentPage);
+});
+
+$('#search-button').on('click', function(){
+    currentPage = 1;
+    searchMode = true;
+    getSearchMovies(currentPage);
+})
