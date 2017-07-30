@@ -45,6 +45,7 @@ const getMoviePreviews = (page) => {
 
         if (page === 1) {
             totalpages = totalpgs;
+            $('.content-placeholder').html("");
         }
 
         moviesInTheaters = resultArray;
@@ -93,6 +94,14 @@ const setEventListeners = () => {
     $('.see-more-link').on('click', function (e) {
         let id = $(e.target).attr("id").split("-")[1];
         expandMovie(id);
+    });
+
+    $('.close-collapse').on('click', function(e) {
+       let movieid = $(e.target).parent('.movie-item').attr("id");
+        collapseMovie();
+        // $('html, body').animate({
+        //     scrollTop: $(movieid).offset().top
+        // }, 500);
     });
 
     $(window).scroll(function () {
@@ -183,11 +192,22 @@ const collapseMovie = () => {
 $('#searchInput').on('input', function() {
     currentPage = 1;
     searchMode = true;
+    $('#in-theaters').removeClass('selected');
     getSearchMovies(currentPage);
 });
 
 $('#search-button').on('click', function(){
     currentPage = 1;
     searchMode = true;
+    $('#in-theaters').removeClass('selected');
     getSearchMovies(currentPage);
+})
+
+$('#in-theaters').on('click', function(){
+    if (!$(this).hasClass('selected')){
+        searchMode = false;
+        currentPage = 1;
+        $(this).addClass('selected');
+        getMoviePreviews(currentPage);
+    }
 })

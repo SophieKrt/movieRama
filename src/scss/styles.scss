@@ -1,4 +1,5 @@
 @import '~bootstrap/scss/bootstrap.scss';
+//@import '_media.scss';
 @import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i');
 
 html, body {
@@ -27,6 +28,15 @@ body {
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+.close-collapse{
+  text-align: right;
+  padding: 20px 20px 0;
+
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 .details-poster img {
@@ -63,9 +73,9 @@ body {
   width: 100%;
   box-shadow: 2px 2px 2px #ccc;
   background-color: white;
-  height: 120px;
+  min-height: 120px;
   overflow: hidden;
-  padding: 20px;
+  padding: 20px 0 0;
 }
 
 .loader {
@@ -84,12 +94,14 @@ body {
 }
 
 #logo-wrapper {
-  height: 100%;
+  padding-left: 20px;
+  height: 50px;
+  margin-bottom: 10px;
 
   img {
     max-width: 100%;
-    height: auto;
-    width: 250px;
+    height: 100%;
+    width: auto;
   }
 }
 
@@ -101,6 +113,9 @@ body {
   -o-transition: max-width .8s ease-in-out;
   -webkit-transition: max-width .8s ease-in-out;
   -moz-transition: max-width .8s ease-in-out;
+  @include media-breakpoint-down(md) {
+    height: 400px !important;
+  }
 
   &:hover {
     cursor: pointer;
@@ -117,8 +132,9 @@ body {
       overflow: hidden;
       text-overflow: initial;
       display: block;
-      height: calc(100% - 100px);
+      height: calc(100% - 120px);
       overflow: scroll;
+
     }
 
     .movie-caption {
@@ -190,6 +206,29 @@ body {
   position: relative;
 }
 
+.navbar{
+  padding: 10px;
+
+  .navbar-nav{
+    padding: 0 30px;
+  }
+
+  .nav-link{
+    font-size: 20px;
+    color: black;
+
+    &:hover{
+      cursor: pointer;
+      color: #3498db !important;
+    }
+
+  }
+
+  .nav-link.selected{
+    font-weight: bold;
+  }
+}
+
 .preview {
   .movie-title{
     overflow: hidden;
@@ -250,6 +289,7 @@ body {
 #search-wrapper {
   display: flex;
   justify-content: flex-end;
+  padding-left: 10px;
   align-items: center; //todo add browser support
 }
 
