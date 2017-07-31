@@ -11,7 +11,6 @@ module.exports = {
     entry: {
         app: './src/js/index.js' //this is the entry
     },
-    // entry: ["./global.js", "./app.js"] //for multiple entries
     output: {
         path: path.resolve(__dirname, "./public"), //this is the output path
         filename: '[name].min.js', //name is the key of entry
@@ -42,7 +41,6 @@ module.exports = {
                 test: /\.css$/,
                 exclude: /node_modules/,
                 loader: debug ? 'style-loader!css-loader' : ExtractTextPlugin.extract("style-loader!css-loader")
-                // loader: 'style-loader!css-loader'
             },
             {
                 test: /\.(png|jpe?g|gif)$/,
@@ -79,7 +77,6 @@ module.exports = {
                 tether: 'tether',
             }),
             new ExtractTextPlugin("css/app.min.css"),
-            // new webpack.optimize.CommonsChunkPlugin('common.js'),
             new webpack.optimize.UglifyJsPlugin(),
             new webpack.optimize.AggressiveMergingPlugin(),
             new webpack.optimize.ModuleConcatenationPlugin(),

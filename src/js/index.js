@@ -18,25 +18,24 @@ var $body = $("body");
 $(document).ready(() => {
 
     let getMoviePrevs = getMoviePreviews;
-    $.ajax({
-        url: "/js/templates/moviePreview.tpl.handlebars",
-        cache: true,
-        success: function (templateScript) {
 
-            previewsTemplate = Handlebars.compile(templateScript);
-            getMoviePrevs(currentPage);
-        }
-    });
+        $.ajax({
+            url: "/js/templates/moviePreview.tpl.handlebars",
+            cache: true,
+            success: function (templateScript) {
 
-    $.ajax({
-        url: "/js/templates/movieDetails.tpl.handlebars",
-        cache: true,
-        success: function (templateScript) {
-            detailsTemplate = Handlebars.compile(templateScript);
-        }
-    });
+                previewsTemplate = Handlebars.compile(templateScript);
+                getMoviePrevs(currentPage);
+            }
+        });
 
-
+        $.ajax({
+            url: "/js/templates/movieDetails.tpl.handlebars",
+            cache: true,
+            success: function (templateScript) {
+                detailsTemplate = Handlebars.compile(templateScript);
+            }
+        });
 });
 
 
@@ -98,11 +97,7 @@ const setEventListeners = () => {
     });
 
     $('.close-collapse').on('click', function(e) {
-       let movieid = $(e.target).parent('.movie-item').attr("id");
         collapseMovie();
-        // $('html, body').animate({
-        //     scrollTop: $(movieid).offset().top
-        // }, 500);
     });
 
     $(window).scroll(function () {

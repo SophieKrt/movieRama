@@ -19,18 +19,25 @@ export const getMoviesNowData = (page, cb) => {
     let moviesArray = [];
     let totalpages = 0;
 
-    getGenres().then(result => {
-        if (result.status === 200) {
-            genresArray = result.data.genres;
+    if (genresArray.length == 0) {
+        getGenres().then(result => {
+            if (result.status === 200) {
+                genresArray = result.data.genres;
 
-            transformPromiseToMovies(moviesInTheatersPromise, (results, pg) => {
-                cb(results, pg);
-            })
-        }
-    })
-        .catch(err => {
-            alert("Please check your network connection.")
-        });
+                transformPromiseToMovies(moviesInTheatersPromise, (results, pg) => {
+                    cb(results, pg);
+                })
+            }
+        })
+            .catch(err => {
+                alert("Please check your network connection.")
+            });
+    }else{
+        transformPromiseToMovies(moviesInTheatersPromise, (results, pg) => {
+            cb(results, pg);
+        })
+    }
+
 
 }
 
@@ -104,7 +111,7 @@ export const getMovieDetails = (id) => {
                                                         .map(review => {
                                                             let linkOfReview = null;
                                                             let linkOfReviewArray = review.content.split("Read the full review here:");
-                                                            if (linkOfReviewArray.length >0 ){
+                                                            if (linkOfReviewArray.length > 0) {
                                                                 linkOfReview = linkOfReviewArray[1];
                                                             }
                                                             return {
@@ -149,8 +156,8 @@ export const getMovieDetails = (id) => {
 export const searchForMovie = (query, page, cb) => {
     let searchPromise = searchMovie(query, page);
 
-    transformPromiseToMovies(searchPromise, (array, totalpg) =>{
-       cb(array,totalpg);
+    transformPromiseToMovies(searchPromise, (array, totalpg) => {
+        cb(array, totalpg);
     })
 
 }

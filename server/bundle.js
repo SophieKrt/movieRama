@@ -48,15 +48,10 @@ module.exports = function () {
             //   res.json({ custom: 'response' });
             // });
 
-            // app.use(express.static(__dirname));
             console.log("path is "+path.join(__dirname,'..', 'public'));
             app.use(express.static(path.join(__dirname,'..', 'public')));
             app.get('*', (req, res, next) => {
-                // match({ routes: routes(), location: req.url }, (err, redirectLocation, renderProps) => {
-                //     res.sendFile(path.resolve(__dirname, 'index.html'));
-
                 res.sendFile(path.join(__dirname,'..', 'public', 'index.html'))
-                // })
             });
         },
     });

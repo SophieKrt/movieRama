@@ -12,37 +12,6 @@ var publicPath = path.resolve(__dirname, "public")
 app.use(express.static(publicPath));
 
 
-//
-// var config = require("./webpack.config.js");
-// // config.entry.app.unshift("webpack-dev-server/client?http://localhost:8080/", "webpack/hot/dev-server");
-// var compiler = webpack(config);
-// var server = new WebpackDevServer(compiler, {
-//     hot: true,
-//     contentBase: "http://localhost/",
-//     historyApiFallback: true,
-//     quiet: true,
-//     open: true,
-//     noInfo: true,
-//     setup: function(app) {
-//         console.log("path is "+path.join(__dirname, 'src'));
-//         app.use(express.static(path.join(__dirname, 'public')));
-//         app.get('*', (req, res, next) => {
-//             res.sendFile(path.join(__dirname, 'public', 'index.html'))
-//         });
-//     },
-// });
-//
-// server.listen(port, '0.0.0.0', (err) => {
-//     if (err) {
-//         alert(err);
-//     }
-//     console.log('Listening at localhost:' + port);
-// });
-// console.log('production or debug? : '+process.env.NODE_ENV);
-// console.log('Server started');
-
-
-
 // We only want to run the workflow when not in production
 if (!isProduction) {
     console.log('development mode!')

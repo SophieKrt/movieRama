@@ -91,7 +91,6 @@ export const getMoviesReviews = (id) => {
 export const searchMovie = (searchinput, page) => {
     searchinput = encodeURI(searchinput);
     let url = urls.searchMovie + "?api_key=" + urls.API_KEY + "&language=en-US&page="+page+"&query=" + searchinput;
-    // let url = "https://api.themoviedb.org/3/search/movie?api_key=bc50218d91157b1ba4f142ef7baaa6a0&query=the+avengers";
     return new Promise((resolve, reject) => {
         return axios.get(url)
             .then(result => {

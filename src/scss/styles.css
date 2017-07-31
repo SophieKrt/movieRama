@@ -1,0 +1,56 @@
+/*
+Error: File to import not found or unreadable: ~bootstrap/scss/bootstrap.scss.
+       Load paths:
+         /Users/sofi/Documents/Github Projects/movieRama/src/scss
+         /Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/bourbon-4.2.6/app/assets/stylesheets
+         /Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/neat-1.7.2/app/assets/stylesheets
+         /Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/susy-2.2.9/sass
+         /Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/bitters-1.1.0/app/assets/stylesheets
+        on line 1 of styles.scss
+
+1: @import '~bootstrap/scss/bootstrap.scss';
+2: @import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i');
+3: 
+4: html, body {
+5:   height: 100%;
+6: }
+
+Backtrace:
+styles.scss:1
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/import_node.rb:45:in `import'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:311:in `visit_import'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/stack.rb:79:in `block in with_base'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/stack.rb:115:in `with_frame'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/stack.rb:79:in `with_base'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:52:in `map'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/tree/root_node.rb:20:in `render'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/engine.rb:278:in `render'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/exec/sass_scss.rb:420:in `run'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/exec/base.rb:52:in `parse'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/lib/sass/exec/base.rb:19:in `parse!'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.20/bin/sass:13:in `<top (required)>'
+/Applications/Prepros.app/Contents/Resources/app/ruby/loader.rb:15:in `load'
+/Applications/Prepros.app/Contents/Resources/app/ruby/loader.rb:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: ~bootstrap/scss/bootstrap.scss.\A        Load paths:\A          /Users/sofi/Documents/Github Projects/movieRama/src/scss\A          /Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/bourbon-4.2.6/app/assets/stylesheets\A          /Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/neat-1.7.2/app/assets/stylesheets\A          /Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/susy-2.2.9/sass\A          /Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/bitters-1.1.0/app/assets/stylesheets\A         on line 1 of styles.scss\A \A 1: @import '~bootstrap/scss/bootstrap.scss';\A 2: @import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i');\A 3: \A 4: html, body {\A 5:   height: 100%;\A 6: }"; }
