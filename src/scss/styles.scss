@@ -51,7 +51,7 @@ body {
 .details-stuff {
   padding-left: 40px;
 
-  @include media-breakpoint-down(sm){
+  @include media-breakpoint-down(md){
     margin-top: 20px;
   }
 }
@@ -173,7 +173,7 @@ body {
   padding: 40px 20px;
   margin: 0 !important;
 
-  @include media-breakpoint-down(sm){
+  @include media-breakpoint-down(md){
     padding: 0;
   }
 }
