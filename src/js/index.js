@@ -159,14 +159,16 @@ const expandMovie = (id) => {
                         breakpoint: 720,
                         settings: {
                             slidesToShow: 4,
-                            slidesToScroll: 1
+                            slidesToScroll: 1,
+                            dots: false
                         }
                     },
                     {
                         breakpoint: 480,
                         settings: {
                             slidesToShow: 2,
-                            slidesToScroll: 1
+                            slidesToScroll: 1,
+                            dots: false
                         }
                     }
                 ]
@@ -210,4 +212,8 @@ $('#in-theaters').on('click', function(){
         $(this).addClass('selected');
         getMoviePreviews(currentPage);
     }
+});
+
+$('form').on('submit', function(){
+    return false;
 })

@@ -5997,6 +5997,9 @@ body {
 
 .content-placeholder {
   padding: 40px 20px; }
+  @media (max-width: 767px) {
+    .content-placeholder {
+      padding: 40px 0; } }
 
 .card {
   width: 100%;
@@ -6023,6 +6026,9 @@ body {
 
 .details-stuff {
   padding-left: 40px; }
+  @media (max-width: 767px) {
+    .details-stuff {
+      margin-top: 20px; } }
 
 .details-title {
   font-size: 20px;
@@ -6102,10 +6108,15 @@ body {
       padding-bottom: 60px; }
     .movie-item:not(.expanded):hover .see-more-link {
       display: block !important; }
+    .movie-item:not(.expanded):hover .small {
+      display: none; }
 
 .movie-details {
   padding: 40px 20px;
   margin: 0 !important; }
+  @media (max-width: 767px) {
+    .movie-details {
+      padding: 0; } }
 
 .movie-part-collapsed {
   background-color: white; }
@@ -6142,9 +6153,18 @@ body {
   position: relative; }
 
 .navbar {
-  padding: 10px; }
+  padding: 10px;
+  margin: 0; }
+  @media (max-width: 991px) {
+    .navbar {
+      flex-direction: row; } }
+  .navbar .form-control {
+    width: calc(100% - 45px); }
   .navbar .navbar-nav {
     padding: 0 30px; }
+    @media (max-width: 991px) {
+      .navbar .navbar-nav {
+        padding: 0 !important; } }
   .navbar .nav-link {
     font-size: 20px;
     color: black; }
@@ -6169,7 +6189,8 @@ body {
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
   display: -webkit-box;
-  -webkit-box-orient: vertical; }
+  -webkit-box-orient: vertical;
+  margin-bottom: 0; }
 
 .movie-caption {
   height: 110px;
@@ -6184,6 +6205,8 @@ body {
   color: white;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.65); }
+  .movie-caption .small {
+    color: #ccc; }
 
 .release-date {
   font-size: 18px; }
@@ -6205,6 +6228,9 @@ body {
   justify-content: flex-end;
   padding-left: 10px;
   align-items: center; }
+  @media (max-width: 767px) {
+    #search-wrapper {
+      justify-content: flex-start; } }
 
 .see-more-link {
   position: absolute;
@@ -6277,7 +6303,16 @@ span.detail-type {
   height: 100%; }
 
 .trailer {
-  margin: 20px 0; }
+  margin: 20px 0;
+  height: 315px; }
+  @media (min-width: 768px) {
+    .trailer {
+      width: 560px;
+      height: 315px; } }
+  @media (max-width: 767px) {
+    .trailer {
+      width: 100%;
+      height: auto; } }
 
 .trailers-wrapper {
   margin: 0px 0 40px 0;
