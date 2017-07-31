@@ -6,7 +6,7 @@
   "author": "Sofia Kritikou",
   "license": "MIT",
   "scripts": {
-    "build": "NODE_ENV=production webpack -p",
+    "build": "NODE_ENV=production webpack",
     "dev": "NODE_ENV=debug webpack-dev-server --host 0.0.0.0 --port 8080 --content-base src/ --inline --hot"
   },
   "devDependencies": {

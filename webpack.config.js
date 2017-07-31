@@ -79,11 +79,9 @@ module.exports = {
                 tether: 'tether',
             }),
             new ExtractTextPlugin("css/app.min.css"),
-            // extractSass,
-            // new ExtractTextPlugin({
-            //     filename: 'css/[name].min.css',
-            //     allChunks: true,
-            // }),
+            // new webpack.optimize.CommonsChunkPlugin('common.js'),
+            new webpack.optimize.UglifyJsPlugin(),
+            new webpack.optimize.AggressiveMergingPlugin(),
             new webpack.optimize.ModuleConcatenationPlugin(),
         ]
 };
