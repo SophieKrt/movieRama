@@ -370,7 +370,7 @@ body.loading .modal {
   -ms-flex-align: center;
   align-items: center;
 
-  @include media-breakpoint-down(sm){
+  @include media-breakpoint-down(md){
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;

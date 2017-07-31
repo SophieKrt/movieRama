@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="50aee5fa-804a-4754-a5d4-9fa8f8af47e7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app.min.js" afterPath="$PROJECT_DIR$/public/app.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.min.css" afterPath="$PROJECT_DIR$/public/css/app.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/bundle.js" afterPath="$PROJECT_DIR$/server/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/apiCalls.js" afterPath="$PROJECT_DIR$/src/js/apiCalls.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/functions.js" afterPath="$PROJECT_DIR$/src/js/functions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/index.js" afterPath="$PROJECT_DIR$/src/js/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scss/styles.scss" afterPath="$PROJECT_DIR$/src/scss/styles.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -90,8 +83,8 @@
       <file leaf-file-name="styles.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scss/styles.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="370" column="22" lean-forward="false" selection-start-line="370" selection-start-column="22" selection-end-line="370" selection-end-column="22" />
+            <state relative-caret-position="335">
+              <caret line="372" column="35" lean-forward="false" selection-start-line="372" selection-start-column="35" selection-end-line="372" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -422,7 +415,7 @@
       <workItem from="1501233074667" duration="6969000" />
       <workItem from="1501312748636" duration="9400000" />
       <workItem from="1501332488408" duration="34083000" />
-      <workItem from="1501504437778" duration="7234000" />
+      <workItem from="1501504437778" duration="7445000" />
     </task>
     <task id="LOCAL-00001" summary="v01 change package.json">
       <created>1501504601289</created>
@@ -473,11 +466,18 @@
       <option name="project" value="LOCAL" />
       <updated>1501515510059</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="v01 browser support added css">
+      <created>1501517133241</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1501517133241</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83395000" />
+    <option name="totallyTimeSpent" value="83606000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -520,7 +520,8 @@
     <MESSAGE value="v01 add slick script- change scripts" />
     <MESSAGE value="v01 responsiveness fixes" />
     <MESSAGE value="v01 loading block" />
-    <option name="LAST_COMMIT_MESSAGE" value="v01 loading block" />
+    <MESSAGE value="v01 browser support added css" />
+    <option name="LAST_COMMIT_MESSAGE" value="v01 browser support added css" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -862,8 +863,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scss/styles.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="370" column="22" lean-forward="false" selection-start-line="370" selection-start-column="22" selection-end-line="370" selection-end-column="22" />
+        <state relative-caret-position="335">
+          <caret line="372" column="35" lean-forward="false" selection-start-line="372" selection-start-column="35" selection-end-line="372" selection-end-column="35" />
           <folding />
         </state>
       </provider>
