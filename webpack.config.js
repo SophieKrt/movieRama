@@ -7,15 +7,15 @@ var styles = "css-loader!sass-loader";
 //"browser": "dist/handlebars.js",
 
 module.exports = {
-    context: path.resolve(__dirname, './src'), //looking here for development files
+    context: __dirname, //looking here for development files
     entry: {
-        app: './js/index.js' //this is the entry
+        app: './src/js/index.js' //this is the entry
     },
     // entry: ["./global.js", "./app.js"] //for multiple entries
     output: {
-        path: path.resolve(__dirname, "./public/assets"), //this is the output path
+        path: path.resolve(__dirname, "./public"), //this is the output path
         filename: '[name].min.js', //name is the key of entry
-        publicPath: '/assets', //shows the publicpath of the assets to the index.html
+        publicPath: '/', //shows the publicpath of the assets to the index.html
     },
     devServer: {
         contentBase: path.resolve(__dirname, './src'),  // New

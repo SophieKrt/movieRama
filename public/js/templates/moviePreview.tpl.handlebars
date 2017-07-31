@@ -1,0 +1,50 @@
+{{#.}}
+    <div id="movie_{{this.id}}" class="movie-item col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="movie-preview-wrapper" style="background-image:url('{{this.imagepath}}');">
+            <div class="movie-caption preview">
+                <span class="movie-title">{{this.title}} <span class="release-date">({{this.date}})</span></span>
+                <div class="genres">
+                    {{#each this.genrenames}}
+                        {{this}} {{#unless @last}} | {{/unless}}
+                    {{/each}}
+                </div>
+                <span class="vote-average">Vote average: {{vote}}</span>
+                <p class="movie-overview">{{this.description}}
+                </p>
+            </div>
+            <a id="link-{{this.id}}" class="hidden-xs-up see-more-link" data-toggle="collapse"
+               href="#movie-{{this.id}}-collapse" aria-expanded="false" aria-controls="#movie-{{this.id}}-collapse">See
+                more</a>
+
+            <div id="#movie-{{this.id}}-collapse" class="movie-part-collapsed collapse">
+                <div class="close-collapse">Close &#10006;</div>
+                <div class="movie-details row">
+                    <div class="details-poster col-6 col-lg-3">
+                        <img src="{{this.imagepath}}" />
+                    </div>
+                    <div class="details-stuff col-6 col-lg-9">
+                        <span class="movie-title">{{this.title}} ({{this.date}})</span>
+                        <div class="genres">
+                            Genres :
+                            {{#each this.genrenames}}
+                                {{this}} {{#unless @last}} | {{/unless}}
+                            {{/each}}
+                        </div>
+                        <span class="vote-average">Vote average: {{vote}}</span>
+
+                        <span class="detail-type">Overview</span>
+                        <p class="movie-overview">{{this.description}}
+                        </p>
+
+                        <span class="detail-type">Release date : </span><span class="detail-value">{{release_date}}</span><br>
+                        <span class="detail-type">Official Language : </span><span class="detail-value">{{language}}</span><br>
+                        <span class="detail-type">Total votes : </span><span class="detail-value">{{vote_count}}</span>
+                    </div>
+
+                </div>
+                    <div class="card card-block container">
+                    </div>
+            </div>
+        </div>
+    </div>
+{{/.}}

@@ -29,7 +29,7 @@ module.exports = function () {
         // We need to tell Webpack to serve our bundled application
         // from the build path. When proxying:
         // http://localhost:3000/build -> http://localhost:8080/build
-        publicPath: path.resolve(__dirname, '..', 'src'),
+        // publicPath: path.resolve(__dirname, '..', 'src'),
 
         // Configure hot replacement
         hot: true,
@@ -39,7 +39,25 @@ module.exports = function () {
         noInfo: true,
         stats: {
             colors: true
-        }
+        },
+        setup: function(app) {
+            // Here you can access the Express app object and add your own custom middleware to it.
+            // For example, to define custom handlers for some paths:
+            // app.get('/some/path', function(req, res) {
+            //   res.json({ custom: 'response' });
+            // });
+
+            // app.use(express.static(__dirname));
+            console.log("path is "+path.join(__dirname,'..', 'public'));
+            app.use(express.static(path.join(__dirname,'..', 'public')));
+            app.get('*', (req, res, next) => {
+                // match({ routes: routes(), location: req.url }, (err, redirectLocation, renderProps) => {
+                //     res.sendFile(path.resolve(__dirname, 'index.html'));
+
+                res.sendFile(path.join(__dirname,'..', 'public', 'index.html'))
+                // })
+            });
+        },
     });
 
     // We fire up the development server and give notice in the terminal

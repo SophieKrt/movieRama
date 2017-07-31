@@ -7,7 +7,7 @@ var app = express();
 
 var isProduction = process.env.NODE_ENV === 'production';
 var port = isProduction ? process.env.PORT : 3000;
-var publicPath = path.resolve(__dirname, "src")
+var publicPath = path.resolve(__dirname, "public")
 
 app.use(express.static(publicPath));
 
@@ -45,6 +45,7 @@ app.use(express.static(publicPath));
 
 // We only want to run the workflow when not in production
 if (!isProduction) {
+    console.log('development mode!')
 
     // We require the bundler inside the if block because
     // it is only needed in a development environment. Later
@@ -60,6 +61,8 @@ if (!isProduction) {
         });
     });
 
+}else{
+    console.log('production mode!')
 }
 
 // It is important to catch any errors from the proxy or the

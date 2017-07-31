@@ -1,0 +1,39 @@
+{{#if this.details.video}}
+    <div class="trailers-wrapper">
+        <span class="details-title">Trailer</span>
+        {{#each this.details.video}}
+            <iframe class="trailer" width="560" height="315" src="{{this.site}}" frameborder="0" allowfullscreen>
+            </iframe>
+        {{/each}}
+    </div>
+
+{{/if}}
+
+{{#if this.details.reviews}}
+    <div class="reviews">
+        <span class="details-title">Reviews</span>
+        {{#each this.details.reviews}}
+            <div class="review">
+            <span class="review-content">{{this.content}}</span>
+                {{#if this.link}}
+                    <br>
+                    Read the full review <a href=" {{this.link}}" target="_blank">here</a>.
+                {{/if}}
+                <br>
+                by <span class="review-author">{{this.author}}</span>
+            </div>
+        {{/each}}
+    </div>
+{{/if}}
+
+{{#if this.details.similar}}
+    <span class="details-title">Similar movies</span>
+    <div id="carousel-{{this.id}}">
+        {{#each this.details.similar}}
+            <div id="similar-{{this.id}}" class="item">
+                <img src="{{this.imagepath}}" alt="Los Angeles">
+                <span class="similar-title">{{this.title}}</span>
+            </div>
+        {{/each}}
+    </div>
+{{/if}}
