@@ -10,9 +10,10 @@ var currentPage = 1;
 var totalpages = 0;
 var moviesInTheaters = [];
 var previewsTemplate, detailsTemplate;
-var scrolledToBottom = false;
+var scrolledToBottom = false;/* used for loading more movies when reaching bottom*/
 var searchMode = false;
-/* used for loading more movies when reaching bottom*/
+
+var $body = $("body");
 
 $(document).ready(() => {
 
@@ -123,6 +124,7 @@ const setEventListeners = () => {
 
 
 const expandMovie = (id) => {
+    $body.addClass("loading");
     let movieDiv = $('#movie_' + id);
     if (!movieDiv.hasClass("expanded")) {
         collapseMovie();
@@ -173,7 +175,7 @@ const expandMovie = (id) => {
                     }
                 ]
             });
-
+            $body.removeClass("loading");
             $('html, body').animate({
                 scrollTop: $(movieid).offset().top
             }, 500);
