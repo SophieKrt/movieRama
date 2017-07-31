@@ -11,6 +11,7 @@
                 <span class="vote-average">Vote average: {{vote}}</span>
                 <p class="movie-overview">{{this.description}}
                 </p>
+                <span class="small hidden-lg-up">[click to see full preview]</span>
             </div>
             <a id="link-{{this.id}}" class="hidden-xs-up see-more-link" data-toggle="collapse"
                href="#movie-{{this.id}}-collapse" aria-expanded="false" aria-controls="#movie-{{this.id}}-collapse">See
@@ -19,10 +20,10 @@
             <div id="#movie-{{this.id}}-collapse" class="movie-part-collapsed collapse">
                 <div class="close-collapse">Close &#10006;</div>
                 <div class="movie-details row">
-                    <div class="details-poster col-6 col-lg-3">
+                    <div class="details-poster col-12 col-md-6 col-lg-3">
                         <img src="{{this.imagepath}}" />
                     </div>
-                    <div class="details-stuff col-6 col-lg-9">
+                    <div class="details-stuff col-12 col-ml-6 col-lg-9">
                         <span class="movie-title">{{this.title}} ({{this.date}})</span>
                         <div class="genres">
                             Genres :
