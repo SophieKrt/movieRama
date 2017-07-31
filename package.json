@@ -7,7 +7,9 @@
   "license": "MIT",
   "scripts": {
     "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=debug webpack-dev-server --host 0.0.0.0 --port 8080 --content-base src/ --inline --hot"
+    "dev": "NODE_ENV=debug webpack-dev-server --host 0.0.0.0 --port 8080 --content-base src/ --inline --hot",
+    "server:prod": "NODE_ENV=production PORT=3000 pm2 start server.js",
+    "server:dev": "NODE_ENV=development pm2 start server.js"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
