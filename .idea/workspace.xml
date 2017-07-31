@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50aee5fa-804a-4754-a5d4-9fa8f8af47e7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/img/block.gif" afterPath="$PROJECT_DIR$/public/img/block.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/img/block.gif" afterPath="$PROJECT_DIR$/src/img/block.gif" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -282,8 +283,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/img" />
       <recent name="$PROJECT_DIR$/public/img" />
+      <recent name="$PROJECT_DIR$/src/img" />
       <recent name="$PROJECT_DIR$/public/js/templates" />
       <recent name="$PROJECT_DIR$/public/assets/img" />
       <recent name="$PROJECT_DIR$/src" />
@@ -391,7 +392,7 @@
       <workItem from="1501233074667" duration="6969000" />
       <workItem from="1501312748636" duration="9400000" />
       <workItem from="1501332488408" duration="34083000" />
-      <workItem from="1501504437778" duration="5490000" />
+      <workItem from="1501504437778" duration="5799000" />
     </task>
     <task id="LOCAL-00001" summary="v01 change package.json">
       <created>1501504601289</created>
@@ -428,11 +429,18 @@
       <option name="project" value="LOCAL" />
       <updated>1501514627510</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="v01 loading block">
+      <created>1501514807787</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1501514807787</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81651000" />
+    <option name="totallyTimeSpent" value="81960000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
