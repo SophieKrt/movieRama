@@ -15,30 +15,39 @@ var genresArray = [];
 
 /* returns an array of the processed data from the api call that returnes the movies in theaters*/
 export const getMoviesNowData = (page, cb) => {
+    let errormsg = "";
     let moviesInTheatersPromise = getMoviesPlayingNow(page);
-    let moviesArray = [];
-    let totalpages = 0;
 
-    if (genresArray.length == 0) {
-        getGenres().then(result => {
-            if (result.status === 200) {
-                genresArray = result.data.genres;
-
+    moviesInTheatersPromise.then(result =>{
+        if (result.status === 200){
+            if (genresArray.length == 0) {
+                getGenres().then(result => {
+                    if (result.status === 200) {
+                        genresArray = result.data.genres;
+                    }else{
+                        alert("Please check your network connection.");
+                    }
+                    transformPromiseToMovies(moviesInTheatersPromise, (results, pg) => {
+                        cb(results, pg, errormsg);
+                    });
+                })
+                    .catch(err => {
+                        cb([], 0, err);
+                    });
+            }else{
                 transformPromiseToMovies(moviesInTheatersPromise, (results, pg) => {
-                    cb(results, pg);
+                    cb(results, pg, errormsg);
                 })
             }
-        })
-            .catch(err => {
-                alert("Please check your network connection.")
-            });
-    }else{
-        transformPromiseToMovies(moviesInTheatersPromise, (results, pg) => {
-            cb(results, pg);
-        })
-    }
-
-
+        }else {
+            errormsg = "Server returned error with status "+result.status;
+            cb([],0, errormsg);
+        }
+    })
+        .catch(err =>{
+        cb([],0, err);
+        console.log(err);
+    });
 }
 
 
@@ -155,10 +164,23 @@ export const getMovieDetails = (id) => {
 
 export const searchForMovie = (query, page, cb) => {
     let searchPromise = searchMovie(query, page);
+    let errormsg = "";
 
-    transformPromiseToMovies(searchPromise, (array, totalpg) => {
-        cb(array, totalpg);
+    searchPromise.then(result =>{
+        if (result.status == 200){
+            transformPromiseToMovies(searchPromise, (array, totalpg) => {
+                cb(array, totalpg, errormsg);
+            });
+        }else{
+            errormsg = "Network error";
+            cb([], 0, errormsg);
+        }
     })
+        .catch(err =>{
+            cb([], 0, err);
+        })
+
+
 
 }
 

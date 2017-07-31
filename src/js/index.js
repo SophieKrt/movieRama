@@ -41,34 +41,42 @@ $(document).ready(() => {
 
 const getMoviePreviews = (page) => {
     searchMode = false;
-    functions.getMoviesNowData(page, (resultArray, totalpgs) => {
+    functions.getMoviesNowData(page, (resultArray, totalpgs, errorMessage) => {
 
-        if (page === 1) {
-            totalpages = totalpgs;
-            $('.content-placeholder').html("");
+        if (resultArray.length == 0){
+            $('.content-placeholder').html("No results.");
+        }else{
+            if (page === 1) {
+                totalpages = totalpgs;
+                $('.content-placeholder').html("");
+            }
+
+            moviesInTheaters = resultArray;
+
+            let theCompiledHtml = previewsTemplate(resultArray);
+            $('.content-placeholder').append(theCompiledHtml);
+            scrolledToBottom = false;
+            $('.loader').addClass('hidden');
+
+            setEventListeners();
         }
 
-        moviesInTheaters = resultArray;
-
-        let theCompiledHtml = previewsTemplate(resultArray);
-        $('.content-placeholder').append(theCompiledHtml);
-        scrolledToBottom = false;
-        $('.loader').addClass('hidden');
-
-        setEventListeners();
     });
 }
 
 const getSearchMovies = (page) => {
     let currentValue = $('#searchInput').val();
     if (currentValue != ""){
-        functions.searchForMovie(currentValue, page, (resultArray, totalpgs) =>{
+        functions.searchForMovie(currentValue, page, (resultArray, totalpgs, errormsg) =>{
             if (page === 1) {
                 totalpages = totalpgs;
                 $('.content-placeholder').html("");
             }
-            if (resultArray.length == 0){
+
+            if (resultArray.length == 0 && errormsg === ""){
                 $('.content-placeholder').html("No results matched your search.");
+            }else if (errormsg != ""){
+                $('.content-placeholder').html("No results.");
             }else{
                 moviesInTheaters = resultArray;
 
